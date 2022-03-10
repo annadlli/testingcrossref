@@ -1,0 +1,26 @@
+---
+title: "Untitled"
+author: "Anna Li"
+date: "3/10/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(ggplot2)
+```
+
+```{r uniquename, fig.cap = "Number of illnesses in the past two weeks, based on the 1977--1978 Australian Health Survey", echo = TRUE}
+library(tidyverse)
+library(AER)
+
+data("DoctorVisits", package = "AER")
+
+DoctorVisits |>
+  ggplot(aes(x = illness)) +
+  geom_histogram(stat = "count")
+```
+
+For instance, (Figure \@ref(fig:uniquename)) will produce: (Figure 4.4) as the name of the R chunk is uniquename. We also need to add ‘fig’ in front of the chunk name so that R Markdown knows that this is a figure. We then include a ‘fig.cap’ in the R chunk that specifies a caption.
